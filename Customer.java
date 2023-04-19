@@ -28,17 +28,25 @@ public String getSkiingLevel () {
   return skiingLevel;
 }
 
-public void setName (String name) {
+public void setCustID (int custId) {
+  this.custId = custId;
+}
+  
+public void setName (int name) {
   this.name = name;
 }
 
-public void addCustomer (String name, int age, String skiingLevel) {
-  
-  Customer newCustomer = new Customer(name, age, skiingLevel);
-  customerList.add(newCustomer);
+public void setAge (int age) {
+  this.age = age;
+}
+
+public void setSkiingLevel (String skiingLevel) {
+  this.skiingLevel;
+}
+
+public String toString() {
+  return "Customer ID: " + custId + ", name: + name + ", age: + age + ", skiingLevel : " + skiingLevel;
+ }
+}
 
 
- 
-  
- 
- 
