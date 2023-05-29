@@ -92,6 +92,24 @@ public class ResortGUI extends JFframe implemetns ActionListener {
         travelPackagesTab.setLayout(new BorderLayout());
         travelPackagesTab.add(new JScrollPane(packagesList), BorderLayout.CENTER);
 
-        JPanel packageButtonsPanel = new JPanel();      
+        JPanel packageButtonsPanel = new JPanel();   
+        
+    private void createInitialAccommodations() {  
+        accommodations.add(new Accommodation("001", "Hotel", 150, true));
+        accommodations.add(new Accommodation("002", "Inn", 100, true));
+        accommodations.add(new Accommodation("003", "Apartment", 200, true));
+        accommodations.add(new Accommodation("004", "Cabin", 150, true));
+        accommodations.add(new Accommodation("005", "Lodge", 250, true));
+        accommodations.add(new Accommodation("006", "Campgroud", 100, true));
+        accommodations.add(new Accommodation("007", "Motel", 110, true));
+        accommodations.add(new Accommodation("008", "Cottage", 150, true));
+        accommodations.add(new Accommodation("009", "Resort", 300, true));
+        accommodations.add(new Accommodation("010", "Suite", 400, true));
+        
+    private void createInitialCustomers() {
+        customers.add(new Customer("001", "Teresa", "Beginner"));
+        customers.add(new Customer("002", "Randy", "Intermediate"));
+        customers.add(new Customer("003", "Michelle", "Expert"));
+        
         
         
