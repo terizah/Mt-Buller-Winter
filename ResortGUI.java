@@ -1,8 +1,8 @@
-
-
-
-
-
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ResortGUI extends JFframe implemetns ActionListener {
     private ArraryList<Accommodation> accommodations;
@@ -41,32 +41,26 @@ public class ResortGUI extends JFframe implemetns ActionListener {
         customers = new ArrayList<>();
         travelPackages = new ArrayList<>();
 
-        // Create main frame
         setTitle("Resort GUI");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Create tabbed pane
         tabbedPane = new JTabbedPane();
 
-        // Create tab panels
         accommodationsTab = new JPanel();
         customersTab = new JPanel();
         travelPackagesTab = new JPanel()
         
-          // Initialize AccommodationsTab components
         accommodationsListModel = new DefaultListModel<>();
         accommodationsList = new JList<>(accommodationsListModel);
         displayAllAccommodationsButton = new JButton("Display All Accommodations");
         displayAvailableAccommodationsButton = new JButton("Display Available Accommodations");
 
-        // Initialize CustomersTab components
         customersListModel = new DefaultListModel<>();
         customersList = new JList<>(customersListModel);
         addCustomerButton = new JButton("Add Customer");
         listCustomersButton = new JButton("List Customers");
 
-        // Initialize TravelPackagesTab components
         packagesListModel = new DefaultListModel<>();
         packagesList = new JList<>(packagesListModel);
         createPackageButton = new JButton("Create Package");
@@ -76,23 +70,63 @@ public class ResortGUI extends JFframe implemetns ActionListener {
         savePackagesButton = new JButton("Save Packages to File");
         readPackagesButton = new JButton("Read Packages from File");
         
-         // Add components to AccommodationsTab
         accommodationsTab.setLayout(new BorderLayout());
         accommodationsTab.add(new JScrollPane(accommodationsList), BorderLayout.CENTER);
         accommodationsTab.add(displayAllAccommodationsButton, BorderLayout.NORTH);
         accommodationsTab.add(displayAvailableAccommodationsButton, BorderLayout.SOUTH);
 
-        // Add components to CustomersTab
         customersTab.setLayout(new BorderLayout());
         customersTab.add(new JScrollPane(customersList), BorderLayout.CENTER);
         customersTab.add(addCustomerButton, BorderLayout.NORTH);
         customersTab.add(listCustomersButton, BorderLayout.SOUTH);
 
-        // Add components to TravelPackagesTab
         travelPackagesTab.setLayout(new BorderLayout());
         travelPackagesTab.add(new JScrollPane(packagesList), BorderLayout.CENTER);
 
         JPanel packageButtonsPanel = new JPanel();   
+        
+    private void displayAllAccommodations() {
+        StringBuilder accommodationInfo = new StringBuilder();
+        for (Accommodation accommodation : accommodations) {
+        accommodationInfo.append(accommodation.toString()).append("\n");
+    }
+        if (accommodationInfo.length() > 0) {
+            JOptionPane.showMessageDialog(this, accommodationInfo.toString(), "All Accommodations", JOptionPane.INFORMATION_MESSAGE);
+    }   else {
+            JOptionPane.showMessageDialog(this, "No accommodations available.", "All Accommodations", JOptionPane.INFORMATION_MESSAGE);
+    }
+}   
+    private void displayAllCustomers() {
+        StringBuilder customerInfo = new StringBuilder();
+        for (Customer customer : customers) {
+        customerInfo.append(customer.toString()).append("\n");
+    }
+        if (customerInfo.length() > 0) {
+            JOptionPane.showMessageDialog(this, customerInfo.toString(), "All Customers", JOptionPane.INFORMATION_MESSAGE);
+    }   else {
+            JOptionPane.showMessageDialog(this, "No customers available.", "All Customers", JOptionPane.INFORMATION_MESSAGE);
+    }
+}
+        
+    public void actionPerformed(ActionEvent e) {
+    
+        if (e.getSource() == displayAllAccommodationsButton) {
+            displayAllAccommodations();
+    }   else if (e.getSource() == displayAvailableAccommodationsButton) {
+      
+    }   else if (e.getSource() == addCustomerButton) {
+       
+    }   else if (e.getSource() == listCustomersButton) {
+          displayAllCustomers();
+    }   else if (e.getSource() == createPackageButton) {
+       
+    }   else if (e.getSource() == addLiftPassButton) {
+     
+    }   else if (e.getSource() == addLessonFeesButton) {
+      
+    }
+}
+        
         
     private void createInitialAccommodations() {  
         accommodations.add(new Accommodation("001", "Hotel", 150, true));
@@ -110,6 +144,8 @@ public class ResortGUI extends JFframe implemetns ActionListener {
         customers.add(new Customer("001", "Teresa", "Beginner"));
         customers.add(new Customer("002", "Randy", "Intermediate"));
         customers.add(new Customer("003", "Michelle", "Expert"));
+            
+    
         
         
         
